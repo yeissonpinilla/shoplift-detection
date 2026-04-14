@@ -12,6 +12,8 @@ import csv
 #from sklearn.metrics import average_precision_score
 from sklearn.metrics import roc_auc_score, precision_recall_curve, roc_curve,auc
 
+_DATA_ROOT = r'd:\Documentos-backup\Fund-DS\shoplift-dataset\Json_files-20260414T145715Z-3-001\Json_files\data'
+
 class bcolors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -55,13 +57,13 @@ def get_dataset_scores(scores, metadata, args=None, save_results=True, directory
             os.makedirs(directory)
 
     if args.dataset == 'UBnormal':
-        pose_segs_root = 'data/UBnormal/pose/test'
+        pose_segs_root = os.path.join(_DATA_ROOT, 'UBnormal', 'pose', 'test')
         clip_list = os.listdir(pose_segs_root)
         clip_list = sorted(
             fn.replace("alphapose_tracked_person.json", "tracks.txt") for fn in clip_list if fn.endswith('.json'))
-        per_frame_scores_root = 'data/UBnormal/gt/'
+        per_frame_scores_root = os.path.join(_DATA_ROOT, 'UBnormal', 'gt')
     else:
-        per_frame_scores_root = 'data/PoseLift/gt/test_frame_mask/'     
+        per_frame_scores_root = os.path.join(_DATA_ROOT, 'PoseLift', 'gt', 'test_frame_mask')
         clip_list = os.listdir(per_frame_scores_root)
         clip_list = sorted(fn for fn in clip_list if fn.endswith('.npy'))  
     clips=[]   #nabud fekr konam

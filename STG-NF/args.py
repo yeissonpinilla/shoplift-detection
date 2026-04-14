@@ -31,7 +31,10 @@ def init_sub_args(args):
     return args, model_args
 
 
-def init_parser(default_data_dir='data/', default_exp_dir='data/exp_dir'):
+def init_parser(
+    default_data_dir=r'd:\Documentos-backup\Fund-DS\shoplift-dataset\Json_files-20260414T145715Z-3-001\Json_files\data',
+    default_exp_dir='data/exp_dir'
+):
     parser = argparse.ArgumentParser(prog="STG-NF")
     # General Args
     parser.add_argument('--vid_path_train', type=str, default=None, help='Path to training vids')
@@ -42,7 +45,7 @@ def init_parser(default_data_dir='data/', default_exp_dir='data/exp_dir'):
     parser.add_argument('--dataset', type=str, default='PoseLift', 
                         choices=['ShanghaiTech', 'ShanghaiTech-HR', 'UBnormal', 'PoseLift'], help='Dataset for Eval')
     parser.add_argument('--vid_res', type=str, default=None, help='Video Res')
-    parser.add_argument('--device', type=str, default='cuda:2', metavar='DEV', help='Device for feature calculation (default: \'cuda:0\')')
+    parser.add_argument('--device', type=str, default='cpu', metavar='DEV', help='Device for feature calculation (default: \'cpu\')')
     parser.add_argument('--seed', type=int, metavar='S', default=999, help='Random seed, use 999 for random (default: 999)')
     parser.add_argument('--verbose', type=int, default=1, metavar='V', choices=[0, 1], help='Verbosity [1/0] (default: 1)')
     parser.add_argument('--data_dir', type=str, default=default_data_dir, metavar='DATA_DIR', help="Path to directory holding .npy and .pkl files (default: {})".format(default_data_dir))

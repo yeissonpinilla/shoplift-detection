@@ -6,8 +6,8 @@ import json
 import os
 
 
-data_path = "/home/training_pickle" #pickle_data_path
-out_path = "/home/testing_json"  #json_output_path             
+data_path = r"d:\Documentos-backup\Fund-DS\shoplift-dataset\Pickle_files-20260414T145716Z-3-001\Pickle_files\Train" #pickle_data_path
+out_path = r"d:\Documentos-backup\Fund-DS\shoplift-dataset\Json_files-20260414T145715Z-3-001\Json_files\data\PoseLift\pose\train"  #json_output_path             
 
 # Ensure the output directory exists
 if not os.path.exists(out_path):
